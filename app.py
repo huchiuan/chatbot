@@ -15,7 +15,6 @@ line_bot_api = LineBotApi('tv8NY9n0JPLCVi6tG5DMcVz/P+cLRap9p8r6ZXsgEnB00z0rKNI+e
 # Channel Secret
 handler = WebhookHandler('3f27a40ad929aaf918dc9f7912d69457')
 
-')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
