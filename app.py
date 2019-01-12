@@ -20,7 +20,7 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('tv8NY9n0JPLCVi6tG5DMcVz/P+cLRap9p8r6ZXsgEnB00z0rKNI+eucjsUGdaGdqri7rNtZ5SepXpyn3UZf/4x5pLd7fY+9oCwEWbPjg9tWpa6lOHBC/ZJtEIlnk9HtGJZotOcNTLA0l8bVaPzBJNAdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('3f27a40ad929aaf918dc9f7912d69457')
-def testtt():
+
 #test
 def movie():
     target_url = 'https://movies.yahoo.com.tw/'
