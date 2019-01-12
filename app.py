@@ -11,7 +11,7 @@ from linebot.exceptions import (
 from linebot.models import *
 
 import requests 
-
+from BeautifulSoup import BeautifulSoup
 from urllib.request import urlretrieve
 
 import urllib3
