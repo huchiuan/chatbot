@@ -24,20 +24,7 @@ line_bot_api = LineBotApi('tv8NY9n0JPLCVi6tG5DMcVz/P+cLRap9p8r6ZXsgEnB00z0rKNI+e
 handler = WebhookHandler('3f27a40ad929aaf918dc9f7912d69457')
 
 #test
-def movie():
-    target_url = 'https://movies.yahoo.com.tw/'
-    rs = requests.session()
-    res = rs.get(target_url, verify=False)
-    res.encoding = 'utf-8'
-    soup = BeautifulSoup(res.text, 'html.parser')   
-    content = ""
-    for index, data in enumerate(soup.select('div.movielist_info h1 a')):
-        if index == 20:
-            return content       
-        title = data.text
-        link =  data['href']
-        content += '{}\n{}\n'.format(title, link)
-    return content
+
 
 
 # 監聽所有來自 /callback 的 Post Request
@@ -54,10 +41,24 @@ def callback():
     except InvalidSignatureError:
         abort(400)
     return 'OK'
-
+def movie():
+    target_url = 'https://movies.yahoo.com.tw/'
+    rs = requests.session()
+    res = rs.get(target_url, verify=False)
+    res.encoding = 'utf-8'
+    soup = BeautifulSoup(res.text, 'html.parser')   
+    content = ""
+    for index, data in enumerate(soup.select('div.movielist_info h1 a')):
+        if index == 20:
+            return content       
+        title = data.text
+        link =  data['href']
+        content += '{}\n{}\n'.format(title, link)
+    return content
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+
     msg=event.message.text
     msg=msg.encode('utf-8')
     if event.message.text == "文字":
@@ -69,7 +70,9 @@ def handle_message(event):
     elif event.message.text == "圖片":
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='圖片網址', preview_image_url='圖片網址'))
     elif event.message.text == "最新電影":
+     
         a=movie()
+        print(a)
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a.text))
     else :
          message = TextSendMessage(text='Hello world')
