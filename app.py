@@ -72,7 +72,7 @@ def handle_message(event):
     elif event.message.text == "最新電影":
      
         a=movie()
-        print(a)
+        print(a +" 55555555555")
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a.text))
     else :
          message = TextSendMessage(text='Hello world')
