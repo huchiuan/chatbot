@@ -1,4 +1,4 @@
-﻿from bs4 import BeautifulSoup
+﻿
 from linebot.models import *
 from flask import Flask, request, abort
 
@@ -13,7 +13,7 @@ from linebot.models import *
 import requests 
 
 from urllib.request import urlretrieve
-
+from bs4 import BeautifulSoup
 import urllib3
 urllib3.disable_warnings()
 app = Flask(__name__)
