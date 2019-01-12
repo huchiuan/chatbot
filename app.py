@@ -14,6 +14,9 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlretrieve
 
+import urllib3
+urllib3.disable_warnings()
+
 app = Flask(__name__)
 
 # Channel Access Token
