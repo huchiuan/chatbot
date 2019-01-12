@@ -1,4 +1,4 @@
-﻿
+﻿from bs4 import BeautifulSoup
 from linebot.models import *
 from flask import Flask, request, abort
 
@@ -11,12 +11,11 @@ from linebot.exceptions import (
 from linebot.models import *
 
 import requests 
-from BeautifulSoup import BeautifulSoup
+
 from urllib.request import urlretrieve
 
 import urllib3
 urllib3.disable_warnings()
-
 app = Flask(__name__)
 
 # Channel Access Token
