@@ -70,7 +70,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='圖片網址', preview_image_url='圖片網址'))
     elif event.message.text == "最新電影":
         a=movie()
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a.text))
     else :
          message = TextSendMessage(text='Hello world')
          line_bot_api.reply_message(event.reply_token, message)
