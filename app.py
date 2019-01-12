@@ -75,7 +75,7 @@ def handle_message(event):
         print(a +" 55555555555")
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a.text))
     else :
-         message = TextSendMessage(text='Hello world')
+         message = TextSendMessage(text=event.message.text)
          line_bot_api.reply_message(event.reply_token, message)
 
 import os
