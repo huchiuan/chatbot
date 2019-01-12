@@ -1,4 +1,6 @@
-﻿from flask import Flask, request, abort
+﻿
+from linebot.models import *
+from flask import Flask, request, abort
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -34,8 +36,19 @@ def callback():
 # 處理訊息
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = TextSendMessage(text='Hello world')
-    line_bot_api.reply_message(event.reply_token, message)
+    msg=event.message.text
+    msg=msg.encode('utf-8')
+    if event.message.text == "文字":
+        print("文字get")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
+    elif event.message.text == "貼圖":
+        print("貼圖get")
+        line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
+    elif event.message.text == "圖片":
+        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='圖片網址', preview_image_url='圖片網址'))
+    else :
+         message = TextSendMessage(text='Hello world')
+         line_bot_api.reply_message(event.reply_token, message)
 
 import os
 if __name__ == "__main__":
