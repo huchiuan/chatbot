@@ -75,7 +75,7 @@ def handle_message(event):
     elif event.message.text == "貼圖":
         print("貼圖get")
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
-    elif event.message.text == "圖片":
+    elif event.message.text == "子瑜抽":
        
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='https://i.imgur.com/nVMlh8I.jpg', preview_image_url='https://i.imgur.com/nVMlh8I.jpg'))
 
