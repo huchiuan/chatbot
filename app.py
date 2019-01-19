@@ -75,7 +75,12 @@ def handle_message(event):
         print("貼圖get")
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
     elif event.message.text == "圖片":
-        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='http://i.imgur.com/HMC8gVr.jpg', preview_image_url='http://i.imgur.com/HMC8gVr.jpg'))
+        pitcure = {
+           "type": "image",
+           "originalContentUrl": "http://i.imgur.com/HMC8gVr.jpg",
+           "previewImageUrl": "http://i.imgur.com/HMC8gVr.jpg"
+          }
+        line_bot_api.reply_message(event.reply_token,pitcure)
 
     elif event.message.text == "新聞":
         a=news()  
