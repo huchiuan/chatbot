@@ -68,6 +68,7 @@ def handle_message(event):
 
     msg=event.message.text
     msg=msg.encode('utf-8')
+
     if event.message.text == "文字":
         print("文字get")
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text=event.message.text))
@@ -75,12 +76,8 @@ def handle_message(event):
         print("貼圖get")
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
     elif event.message.text == "圖片":
-        pitcure = {
-           "type": "image",
-           "originalContentUrl": "https://i.imgur.com/nVMlh8I.jpg",
-           "previewImageUrl": "https://i.imgur.com/nVMlh8I.jpg"
-          }
-        line_bot_api.reply_message(event.reply_token,pitcure)
+       
+        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='https://i.imgur.com/nVMlh8I.jpg', preview_image_url='https://i.imgur.com/nVMlh8I.jpg'))
 
     elif event.message.text == "新聞":
         a=news()  
