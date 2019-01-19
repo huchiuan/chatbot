@@ -97,7 +97,7 @@ def handle_message(event):
     elif event.message.text == "新聞":
      
         a=news()
-        print(a +" 55555555555")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Yahoo前五大新聞'))
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a))
     else :
          message = TextSendMessage(text=event.message.text)
