@@ -77,8 +77,8 @@ def handle_message(event):
     elif event.message.text == "圖片":
         pitcure = {
            "type": "image",
-           "originalContentUrl": "http://i.imgur.com/HMC8gVr.jpg",
-           "previewImageUrl": "http://i.imgur.com/HMC8gVr.jpg"
+           "originalContentUrl": "https://i.imgur.com/nVMlh8I.jpg",
+           "previewImageUrl": "https://i.imgur.com/nVMlh8I.jpg"
           }
         line_bot_api.reply_message(event.reply_token,pitcure)
 
