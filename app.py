@@ -94,6 +94,11 @@ def handle_message(event):
         a=movie()
         print(a +" 55555555555")
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a.text))
+    elif event.message.text == "新聞":
+     
+        a=news()
+        print(a +" 55555555555")
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=a.text))
     else :
          message = TextSendMessage(text=event.message.text)
          line_bot_api.reply_message(event.reply_token, message)
