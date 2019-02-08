@@ -76,7 +76,7 @@ def handle_message(event):
         print("貼圖get")
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
     elif event.message.text == "子瑜抽":
-        twice[0]="ChiuanTest-01\twice\1"
+        twice[0]="ChiuanTest-01\picture\1"
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='twice[0]', preview_image_url='twice[0]'))
 
     elif event.message.text == "新聞":
