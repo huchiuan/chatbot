@@ -79,6 +79,10 @@ def handle_message(event):
         twice[0]="ChiuanTest-01\picture\1"
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='twice[0]', preview_image_url='twice[0]'))
 
+    elif event.message.text == "測試抽":
+        
+        line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='7.jpg', preview_image_url='7.jpg'))
+
     elif event.message.text == "新聞":
         a=news()  
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Yahoo前五大新聞:'+'\n'+a))
