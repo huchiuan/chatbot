@@ -71,6 +71,10 @@ def dcard():
     soup = BeautifulSoup(resp.text, 'html.parser')
     dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
     dcard_url = soup.find_all('a', re.compile('PostEntry_root_'))
+
+    test = []
+    finalanswer = ''
+    
     for index, item in enumerate(dcard_title[:10]):
         newurl = dcard_url[index].get('href')
         finalur = newurl.split("-")
