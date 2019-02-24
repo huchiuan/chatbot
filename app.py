@@ -74,10 +74,15 @@ def dcard():
     for index, item in enumerate(dcard_title[:10]):
         newurl = dcard_url[index].get('href')
         finalur = newurl.split("-")
-        answer = ""
+        answer = (str)(item.text.strip()) + "網址:https://www.dcard.tw" + (str)(finalur[0]) + "  "
+        test.append(answer)
+        number = (str)(index + 1) + '.'
+        print(number)
+        finalanswer += number
+        finalanswer += test[index]
         print(index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0])
-        answer += (index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0])
-    return answer
+
+    return finalanswer
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
