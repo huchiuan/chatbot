@@ -78,7 +78,7 @@ def dcard():
     for index, item in enumerate(dcard_title[:10]):
         newurl = dcard_url[index].get('href')
         finalur = newurl.split("-")
-        answer = (str)(item.text.strip()) + "網址:https://www.dcard.tw" + (str)(finalur[0]) + '\n\n'
+        answer = (str)(item.text.strip()) + '\n'+"https://www.dcard.tw" + (str)(finalur[0]) + '\n\n'
         test.append(answer)
         number = (str)(index + 1) + '.'
         print(number)
