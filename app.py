@@ -111,7 +111,7 @@ def handle_message(event):
     elif event.message.text == "dcard":
         a = dcard()
         b=a.split(",")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + b))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + b[:10]))
 
     else :
          message = TextSendMessage(text=event.message.text)
