@@ -106,11 +106,11 @@ def handle_message(event):
 
     elif event.message.text == "新聞":
         a=news()
-        b=a.split("  ")
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Yahoo前五大新聞:'+'\n'+b))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Yahoo前五大新聞:'+'\n'+a))
     elif event.message.text == "dcard":
         a = dcard()
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + a))
+        b=a.split(" ")
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + b))
 
     else :
          message = TextSendMessage(text=event.message.text)
