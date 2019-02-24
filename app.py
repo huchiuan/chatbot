@@ -11,6 +11,7 @@ from linebot.exceptions import (
 from linebot.models import *
 
 import requests 
+import re
 
 from urllib.request import urlretrieve
 from bs4 import BeautifulSoup
@@ -61,7 +62,22 @@ def news():
         href=s.get('href')
         content += '{}\n{}\n'.format(title, href)
     return content
+def dcard():
+    url = 'https://www.dcard.tw/f'
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'}
+    resp = requests.get(url, headers=headers)
 
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    dcard_title = soup.find_all('h3', re.compile('PostEntry_title_'))
+    dcard_url = soup.find_all('a', re.compile('PostEntry_root_'))
+    for index, item in enumerate(dcard_title[:10]):
+        newurl = dcard_url[index].get('href')
+        finalur = newurl.split("-")
+        answer = ""
+        print(index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0])
+        answer += index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0]
+    return answer
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -82,6 +98,10 @@ def handle_message(event):
     elif event.message.text == "新聞":
         a=news()  
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Yahoo前五大新聞:'+'\n'+a))
+    elif event.message.text == "dcard":
+        a = dcard()
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + a))
+
     else :
          message = TextSendMessage(text=event.message.text)
          line_bot_api.reply_message(event.reply_token, message)
