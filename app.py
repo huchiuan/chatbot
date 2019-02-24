@@ -78,7 +78,7 @@ def dcard():
     for index, item in enumerate(dcard_title[:10]):
         newurl = dcard_url[index].get('href')
         finalur = newurl.split("-")
-        answer = (str)(item.text.strip()) + "網址:https://www.dcard.tw" + (str)(finalur[0]) + ","
+        answer = (str)(item.text.strip()) + "網址:https://www.dcard.tw" + (str)(finalur[0]) + '{}\n{}\n'+","
         test.append(answer)
         number = (str)(index + 1) + '.'
         print(number)
@@ -110,9 +110,8 @@ def handle_message(event):
 
     elif event.message.text == "dcard":
         a = dcard()
-        b=a.split(",")
-        print(b[:10])
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + "123"))
+
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + a))
 
     else :
          message = TextSendMessage(text=event.message.text)
