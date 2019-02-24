@@ -74,7 +74,7 @@ def dcard():
 
     test = []
     finalanswer = ''
-    
+
     for index, item in enumerate(dcard_title[:10]):
         newurl = dcard_url[index].get('href')
         finalur = newurl.split("-")
@@ -105,8 +105,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='https://i.imgur.com/nVMlh8I.jpg', preview_image_url='https://i.imgur.com/nVMlh8I.jpg'))
 
     elif event.message.text == "新聞":
-        a=news()  
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Yahoo前五大新聞:'+'\n'+a))
+        a=news()
+        b=a.split("  ")
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text='Yahoo前五大新聞:'+'\n'+b))
     elif event.message.text == "dcard":
         a = dcard()
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + a))
