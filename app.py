@@ -76,7 +76,7 @@ def dcard():
         finalur = newurl.split("-")
         answer = ""
         print(index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0])
-        answer += index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0]
+        answer += (index + 1, item.text.strip(), "網址:", "https://www.dcard.tw" + finalur[0])
     return answer
 
 @handler.add(MessageEvent, message=TextMessage)
