@@ -96,7 +96,7 @@ def handle_message(event):
 
     if event.message.text == "幹你娘":
         print("文字get")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='蔡承峰幹你娘'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='幹你娘???'))
     elif event.message.text == "貼圖":
         print("貼圖get")
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
