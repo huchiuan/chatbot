@@ -94,9 +94,17 @@ def handle_message(event):
     msg=event.message.text
     msg=msg.encode('utf-8')
 
-    if event.message.text == "幹你娘":
+    if event.message.text == "新北":
         print("文字get")
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='幹你娘???'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='要食衣住行育樂?'))
+        if event.message.text == "食":
+            print("文字get")
+            line_bot_api.reply_message(event.reply_token, TextSendMessage(text='想吃什麼?'))
+            if event.message.text == "燒烤":
+                print("文字get")
+                line_bot_api.reply_message(event.reply_token, TextSendMessage(text='推薦給你:就醬子烤霸'))
+
+
     elif event.message.text == "貼圖":
         print("貼圖get")
         line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
