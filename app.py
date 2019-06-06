@@ -117,11 +117,29 @@ def handle_message(event):
                         data='action=buy&itemid=1'
                     ),
 
-                    UriTemplateAction(
+                    URITemplateAction(
 
                         lable='sendlocation'
-                        ,Uri='line://nv/location'
+                        ,uri='line://nv/location'
                     )
+                ]
+            )
+        )
+
+        line_bot_api.reply_message(event.reply_token, message)
+    elif event.message.text == "測試定位":
+        message = TemplateSendMessage(
+            alt_text='Confirm template',
+            template=ConfirmTemplate(
+                text='是否要修改定位?',
+                actions=[
+                    PostbackTemplateAction(
+                        label='postback',
+                        text='postback text',
+                        data='action=buy&itemid=1'
+                    ),
+
+
                 ]
             )
         )
