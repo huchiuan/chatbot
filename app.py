@@ -104,6 +104,8 @@ def handle_message(event):
                 print("文字get")
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text='推薦給你:就醬子烤霸'))
 
+    elif event.message.location == true:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='66666666666666'))
 
     elif event.message.text == "定位":
         message = TemplateSendMessage(
