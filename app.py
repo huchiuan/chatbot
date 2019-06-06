@@ -109,16 +109,17 @@ def handle_message(event):
         message = TemplateSendMessage(
             alt_text='Confirm template',
             template=ConfirmTemplate(
-                text='Are you sure?',
+                text='是否要修改定位?',
                 actions=[
                     PostbackTemplateAction(
                         label='postback',
                         text='postback text',
                         data='action=buy&itemid=1'
                     ),
-                    MessageTemplateAction(
-                        label='message',
-                        text='message text'
+
+                    LocationAction(
+                        type='location',
+                        lable='sendlocation'
                     )
                 ]
             )
