@@ -116,9 +116,9 @@ def handle_message(event):
                         text='postback text',
                         data='action=buy&itemid=1'
                     ),
-                    MessageTemplateAction(
-                        label='message',
-                        text='message text'
+                    URITemplateAction(
+                        label='location',
+                        uri='line://nv/location'
                     )
                 ]
             )
