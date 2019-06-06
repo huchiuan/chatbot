@@ -120,6 +120,13 @@ def handle_message(event):
         a = dcard()
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + a))
+    elif event.message.text == "測試用":
+        bubble = BubbleContainer(body=BoxComponent(layout='vertical', contents=[
+            TextComponent(text='請問需要什麼服務?'),
+            ButtonComponent(action=MessageAction(label='請推薦餐廳', text='請推薦餐廳'))
+        ]))
+
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=bubble))
 
     else :
          message = TextSendMessage(text=event.message.text)
