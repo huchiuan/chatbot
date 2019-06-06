@@ -128,6 +128,32 @@ def handle_message(event):
 
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=bubble))
 
+    elif event.message.text == "測試用2":
+        Carousel = {
+  "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "message",
+        "label": "更多推薦餐廳",
+        "text": "更多推薦餐廳"
+      },
+      {
+        "type": "message",
+        "label": "選擇其他服務方案",
+        "text": "選擇其他服務方案"
+      }
+    ],
+    "title": "還需要更多服務嗎？",
+    "text": "更多推薦"
+  }
+}
+
+        line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=Carousel))
+
+
     else :
          message = TextSendMessage(text=event.message.text)
          line_bot_api.reply_message(event.reply_token, message)
