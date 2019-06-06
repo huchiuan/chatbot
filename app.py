@@ -105,9 +105,26 @@ def handle_message(event):
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text='推薦給你:就醬子烤霸'))
 
 
-    elif event.message.text == "貼圖":
-        print("貼圖get")
-        line_bot_api.reply_message(event.reply_token, StickerSendMessage(package_id=1,sticker_id=2))
+    elif event.message.text == "定位":
+        message = TemplateSendMessage(
+            alt_text='Confirm template',
+            template=ConfirmTemplate(
+                text='Are you sure?',
+                actions=[
+                    PostbackTemplateAction(
+                        label='postback',
+                        text='postback text',
+                        data='action=buy&itemid=1'
+                    ),
+                    MessageTemplateAction(
+                        label='message',
+                        text='message text'
+                    )
+                ]
+            )
+        )
+
+        line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "子瑜抽":
        
         line_bot_api.reply_message(event.reply_token,ImageSendMessage(original_content_url='https://i.imgur.com/nVMlh8I.jpg', preview_image_url='https://i.imgur.com/nVMlh8I.jpg'))
@@ -129,27 +146,11 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=bubble))
 
     elif event.message.text == "測試用2":
-        Carousel = {
-  "type": "template",
-  "altText": "this is a buttons template",
-  "template": {
-    "type": "buttons",
-    "actions": [
-      {
-        "type": "message",
-        "label": "更多推薦餐廳",
-        "text": "更多推薦餐廳"
-      },
-      {
-        "type": "message",
-        "label": "選擇其他服務方案",
-        "text": "選擇其他服務方案"
-      }
-    ],
-    "title": "還需要更多服務嗎？",
-    "text": "更多推薦"
-  }
-}
+        Carousel = CarouselContainer(body=BoxComponent(layout='vertical',
+          contents=[
+            TextComponent(text='請問需要什麼服務?'),
+            ButtonComponent(action=MessageAction(label='請推薦餐廳', text='請推薦餐廳'))
+        ]))
 
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=Carousel))
 
