@@ -116,30 +116,10 @@ def handle_message(event):
                         text='postback text',
                         data='action=buy&itemid=1'
                     ),
-
-                    URITemplateAction(
-
-                        lable='sendlocation'
-                        ,uri='line://nv/location'
+                    MessageTemplateAction(
+                        label='message',
+                        text='message text'
                     )
-                ]
-            )
-        )
-
-        line_bot_api.reply_message(event.reply_token, message)
-    elif event.message.text == "測試定位":
-        message = TemplateSendMessage(
-            alt_text='Confirm template',
-            template=ConfirmTemplate(
-                text='是否要修改定位?',
-                actions=[
-                    PostbackTemplateAction(
-                        label='postback',
-                        text='postback text',
-                        data='action=buy&itemid=1'
-                    ),
-
-
                 ]
             )
         )
@@ -168,8 +148,8 @@ def handle_message(event):
     elif event.message.text == "測試用2":
         Carousel = CarouselContainer(body=BoxComponent(layout='vertical',
           contents=[
-            TextComponent(text='請問需要什麼服務?'),
-            ButtonComponent(action=MessageAction(label='請推薦餐廳', text='請推薦餐廳'))
+            TextComponent(text='更新位置?'),
+            ButtonComponent(action=URIAction(label='請給予位置', uri='line://nv/location'))
         ]))
 
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=Carousel))
