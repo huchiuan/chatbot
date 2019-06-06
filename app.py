@@ -104,8 +104,7 @@ def handle_message(event):
                 print("文字get")
                 line_bot_api.reply_message(event.reply_token, TextSendMessage(text='推薦給你:就醬子烤霸'))
 
-    elif event.message.location :
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(text='66666666666666'))
+
 
     elif event.message.text == "定位":
         message = TemplateSendMessage(
@@ -160,6 +159,18 @@ def handle_message(event):
     else :
          message = TextSendMessage(text=event.message.text)
          line_bot_api.reply_message(event.reply_token, message)
+
+
+
+@handler.add(MessageEvent, message=LocationMessage)
+def handle_location(event):
+    newcoming_text = "接收到位置囉"
+
+    line_bot_api.reply_message(
+            event.reply_token,
+            TextMessage(text=newcoming_text)
+        )
+    
 
 import os
 if __name__ == "__main__":
