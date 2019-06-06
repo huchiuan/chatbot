@@ -117,8 +117,8 @@ def handle_message(event):
                         data='action=buy&itemid=1'
                     ),
 
-                    LocationAction(
-                        type='location',
+                    LocationTemplateAction(
+                       
                         lable='sendlocation'
                     )
                 ]
