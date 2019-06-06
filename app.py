@@ -117,9 +117,10 @@ def handle_message(event):
                         data='action=buy&itemid=1'
                     ),
 
-                    LocationTemplateAction(
-                       
+                    UriTemplateAction(
+
                         lable='sendlocation'
+                        ,Uri='line://nv/location'
                     )
                 ]
             )
