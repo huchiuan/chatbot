@@ -9,9 +9,14 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-
+import os
 import requests 
 import re
+
+import apiai
+import json
+import requests
+import random
 
 from urllib.request import urlretrieve
 from bs4 import BeautifulSoup
