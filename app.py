@@ -529,7 +529,7 @@ def handle_message(event):
 
             hero=ImageComponent(
 
-                url='https://banner2.kisspng.com/20180607/luv/kisspng-mapquest-computer-icons-logo-google-maps-5b18bd44de3033.6727374215283479729101.jpg',
+                url='https://imgur.com/MVO9Y1X',
 
                 size='full',
 
