@@ -6,3 +6,4 @@ url-normalize
 beautifulsoup4
 bs4
 Beautifulsoup4
+json
