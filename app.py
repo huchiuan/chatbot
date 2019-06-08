@@ -95,7 +95,7 @@ def handle_message(event):
     msg=event.message.text
     msg=msg.encode('utf-8')
 
-   
+
     if event.message.text == "信用卡flex":
         bubble = BubbleContainer(
             direction='ltr',
@@ -324,8 +324,8 @@ def handle_message(event):
 
     elif event.message.text=="新新抽":
         carousel=CarouselContainer(
-        contents=[
-            BoxComponent(
+        columns=[
+            CarouselColumn(
             direction='ltr',
             hero=ImageComponent(
                 url='https://example.com/cafe.jpg',
@@ -424,8 +424,8 @@ def handle_message(event):
                 ]
             ),
         ),
-            BoxComponent(
-            bubble2=BubbleContainer(
+            CarouselColumn(
+
                 direction='ltr',
                 hero=ImageComponent(
                     url='https://example.com/cafe.jpg',
@@ -523,7 +523,7 @@ def handle_message(event):
                         )
                     ]
                 ),
-            ))
+            )
             ]
         )
         message = FlexSendMessage(alt_text="hello", contents=carousel)
