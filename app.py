@@ -531,11 +531,11 @@ def handle_message(event):
 
                 url='https://i.imgur.com/Mu3OmsY.jpg',
 
-                size='full',
+                size='md',
 
-                aspect_ratio='20:13',
+                aspect_ratio='5:1',
 
-                aspect_mode='cover',
+                aspect_mode='fit',
 
                 action=URIAction(uri='line://nv/location', label='label')
 
