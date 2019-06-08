@@ -324,8 +324,9 @@ def handle_message(event):
 
     elif event.message.text=="新新抽":
         carousel=CarouselContainer(
-        columns=[
-            CarouselColumn(
+        contents=[
+            FlexComponent(
+
             direction='ltr',
             hero=ImageComponent(
                 url='https://example.com/cafe.jpg',
@@ -424,7 +425,7 @@ def handle_message(event):
                 ]
             ),
         ),
-            CarouselColumn(
+            FlexComponent(
 
                 direction='ltr',
                 hero=ImageComponent(
@@ -541,7 +542,8 @@ def handle_message(event):
 
         line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Dcard十大熱門文章:' + '\n' + a))
     elif event.message.text == "測試用":
-        bubble = BubbleContainer(body=BoxComponent(layout='vertical', contents=[
+        bubble = BubbleContainer(
+            body=BoxComponent(layout='vertical', contents=[
             TextComponent(text='請問需要什麼服務?'),
             ButtonComponent(action=MessageAction(label='請推薦餐廳', text='請推薦餐廳'))
         ]))
@@ -553,7 +555,9 @@ def handle_message(event):
           contents=[
             TextComponent(text='更新位置?'),
             ButtonComponent(action=URIAction(label='請給予位置', uri='line://nv/location'))
-        ]))
+        , TextComponent(text='更新位置222?'),
+            ButtonComponent(action=URIAction(label='請給予位置222', uri='line://nv/location'))
+          ]))
 
         line_bot_api.reply_message(event.reply_token, FlexSendMessage(alt_text="Flex message", contents=Carousel))
 
