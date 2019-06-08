@@ -457,7 +457,8 @@ def handle_message(event):
 
     elif event.message.text=="新新抽":
         carousel=CarouselContainer(
-        bubble1 = BubbleContainer(
+        contents=[
+            BoxComponent(
             direction='ltr',
             hero=ImageComponent(
                 url='https://example.com/cafe.jpg',
@@ -556,6 +557,7 @@ def handle_message(event):
                 ]
             ),
         ),
+            BoxComponent(
             bubble2=BubbleContainer(
                 direction='ltr',
                 hero=ImageComponent(
@@ -654,7 +656,8 @@ def handle_message(event):
                         )
                     ]
                 ),
-            )
+            ))
+            ]
         )
         message = FlexSendMessage(alt_text="hello", contents=carousel)
         line_bot_api.reply_message(
