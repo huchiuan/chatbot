@@ -531,7 +531,7 @@ def handle_message(event):
 
                 url='https://i.imgur.com/Mu3OmsY.jpg',
 
-                size='md',
+                size='full',
 
                 aspect_ratio='5:1',
 
