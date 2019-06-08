@@ -529,7 +529,7 @@ def handle_message(event):
 
             hero=ImageComponent(
 
-                url='https://imgur.com/MVO9Y1X',
+                url='https://i.imgur.com/MVO9Y1X.jpg',
 
                 size='full',
 
