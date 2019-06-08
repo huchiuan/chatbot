@@ -1556,14 +1556,15 @@ def handle_message(event):
             )
         )
         carousel = CarouselContainer(contents=[bubble_1, bubble_2, bubble_3, bubble_4, bubble_5])
-        bubble = BubbleContainer(
+        newbubble = BubbleContainer(
             body=BoxComponent(layout='vertical', contents=[
                 TextComponent(text='需要更詳細的推薦嗎?'),
                 ButtonComponent(action=MessageAction(label='分析喜好推薦', text='分析喜好推薦')),
                 ButtonComponent(action=MessageAction(label='更改喜好設定', text='更改喜好設定'))
             ]))
         line_bot_api.reply_message(event.reply_token, [TextSendMessage(text="讓我來推薦你附近餐廳～"),
-                                                       FlexSendMessage(alt_text="Flex message", contents=[carousel,bubble])])
+                                                       FlexSendMessage(alt_text="Flex message", contents=carousel),
+                                                       FlexSendMessage(alt_text="Flex message", contents=newbubble)])
 
 
     elif event.message.text == "測試用":
