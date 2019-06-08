@@ -421,7 +421,7 @@ def handle_message(event):
 
                             ImageComponent(
 
-                                url='https://pic.pimg.tw/ma16zaq2000/1480521926-2602114417_l.jpg',
+                                url='https://i.imgur.com/3lDSAzf.jpg',
 
                                 size='full',
 
@@ -441,7 +441,7 @@ def handle_message(event):
 
                             ImageComponent(
 
-                                url='https://assets.sandsresortsmacao.cn/content/dam/parisianmacao/hotel/rooms-suites/deluxe-room/pm_deluxe-room_800x480_1.jpg',
+                                url='https://i.imgur.com/Du2ZFZW.jpg',
 
                                 size='full',
 
@@ -477,7 +477,7 @@ def handle_message(event):
 
                             ImageComponent(
 
-                                url='https://ws.www.gov.tw/001/Upload/305/relpic/7982/267588/aa983071-1bb3-4054-b817-27e2804f17a6.jpg',
+                                url='https://i.imgur.com/3QOwxjC.jpg',
 
                                 size='full',
 
@@ -497,7 +497,7 @@ def handle_message(event):
 
                             ImageComponent(
 
-                                url='https://pbs.twimg.com/media/C01BweoVQAAbzma.jpg',
+                                url='https://i.imgur.com/4KLqGKc.jpg',
 
                                 size='full',
 
