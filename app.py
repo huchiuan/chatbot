@@ -17,6 +17,8 @@ import os
 from urllib.request import urlretrieve
 from bs4 import BeautifulSoup
 import urllib3
+import apiai
+
 urllib3.disable_warnings()
 app = Flask(__name__)
 
@@ -1091,9 +1093,15 @@ def handle_message(event):
 
 
     else :
-         message = TextSendMessage(text=event.message.text)
-         line_bot_api.reply_message(event.reply_token, message)
+        ai = apiai.ApiAI(os.environ.get('CLIENT_ACCESS_TOKEN'))
+        request = ai.text_request()
 
+        request.lang = 'tw'  # optional, default value equal 'en'
+
+        request.query = event.message.text
+        response = request.getresponse().read().decode()
+        result = json.loads(response)
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text=result['result']['fulfillment']['speech']))
 
 
 @handler.add(MessageEvent, message=LocationMessage)
