@@ -22,8 +22,10 @@ import apiai
 urllib3.disable_warnings()
 app = Flask(__name__)
 
+# Channel Access Token
 
-
+handler=os.environ.get
+line_bot_api=os.environ.get
 #test
 
 
